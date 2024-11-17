@@ -3630,6 +3630,38 @@ if _G.Hiru_Hub_Series_R then
 				end
 			end
 		elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+			if Old_World and game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+				local Lv = game.Players.LocalPlayer.Data.Level.Value
+				if game.Players.LocalPlayer.Data.Level.Value >= 60 and game.Players.LocalPlayer.Data.Level.Value < 650 and #game.Players:GetPlayers() > 5 then
+					if string.find(tostring(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("PlayerHunter")),'We') then
+						if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+							local at_time = 0
+							FarmPlayer = false
+							repeat wait()
+								local xp = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text
+								result = {}
+								local regex = ("([^%s]+)"):format(" ")
+								for each in xp:gmatch(regex) do
+									table.insert(result, each)
+								end
+								if #result >= 2 then
+									if game.Players:FindFirstChild(result[2]) and game.Players[result[2]].Data.Level.Value >= 20 and game.Players[result[2]].Data.Level.Value <= game.Players.LocalPlayer.Data.Level.Value+200 then
+										FarmPlayer = true
+										at_time = 5
+									else
+										if string.find(tostring(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("PlayerHunter")),'We') then
+											at_time = at_time+1
+										end
+									end
+								end
+							until at_time >= 5
+							if not FarmPlayer and game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+								HopLowServer()
+							end
+						end
+					end
+				end
+			end
 			Check_Level = false
 			SelectBoss = nil
 			if Old_World then
@@ -3755,38 +3787,6 @@ if _G.Hiru_Hub_Series_R then
 						until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true or not Auto_Farm_Kaitun
 					elseif CFrameQBoss == nil then
 						SelectBoss = nil
-					end
-				end
-			end
-			if Old_World and game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-				local Lv = game.Players.LocalPlayer.Data.Level.Value
-				if game.Players.LocalPlayer.Data.Level.Value >= 60 and game.Players.LocalPlayer.Data.Level.Value < 650 and #game.Players:GetPlayers() > 5 then
-					if string.find(tostring(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("PlayerHunter")),'We') then
-						if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-							local at_time = 0
-							FarmPlayer = false
-							repeat wait()
-								local xp = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text
-								result = {}
-								local regex = ("([^%s]+)"):format(" ")
-								for each in xp:gmatch(regex) do
-									table.insert(result, each)
-								end
-								if #result >= 2 then
-									if game.Players:FindFirstChild(result[2]) and game.Players[result[2]].Data.Level.Value >= 20 and game.Players[result[2]].Data.Level.Value <= game.Players.LocalPlayer.Data.Level.Value+200 then
-										FarmPlayer = true
-										at_time = 5
-									else
-										if string.find(tostring(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("PlayerHunter")),'We') then
-											at_time = at_time+1
-										end
-									end
-								end
-							until at_time >= 5
-							if not FarmPlayer and game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-								HopLowServer()
-							end
-						end
 					end
 				end
 			end
