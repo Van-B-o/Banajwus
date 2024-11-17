@@ -2189,7 +2189,7 @@ if _G.Hiru_Hub_Series_R then
 				CFrameQ = CFrame.new(1059.37195, 15.4495068, 1550.4231, 0.939700544, -0, -0.341998369, 0, 1, -0, 0.341998369, 0, 0.939700544)
 				CFrameMon = CFrame.new(1353.44885, 3.40935516, 1376.92029, 0.776053488, -6.97791975e-08, 0.630666852, 6.99138596e-08, 1, 2.4612488e-08, -0.630666852, 2.49917598e-08, 0.776053488)
 				Next_Level_X = 10
-			elseif game.Players.LocalPlayer.Data.Level.Value == 10 or game.Players.LocalPlayer.Data.Level.Value <= 100 then
+			elseif game.Players.LocalPlayer.Data.Level.Value == 10 or game.Players.LocalPlayer.Data.Level.Value <= 50 then
 				Ms = "Shanda"
 				NameQuest = "SkyExp1Quest"
 				QuestLv = 2
@@ -3632,7 +3632,7 @@ if _G.Hiru_Hub_Series_R then
 		elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 			if Old_World and game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 				local Lv = game.Players.LocalPlayer.Data.Level.Value
-				if game.Players.LocalPlayer.Data.Level.Value >= 20 and game.Players.LocalPlayer.Data.Level.Value < 650 and #game.Players:GetPlayers() > 1 then
+				if game.Players.LocalPlayer.Data.Level.Value >= 50 and game.Players.LocalPlayer.Data.Level.Value < 650 and #game.Players:GetPlayers() > 1 then
 					if string.find(tostring(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("PlayerHunter")),'We') then
 						if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
 							local at_time = 0
@@ -3792,7 +3792,7 @@ if _G.Hiru_Hub_Series_R then
 			end
 			if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 				local Lv = game.Players.LocalPlayer.Data.Level.Value
-				if game.Players.LocalPlayer.Data.Level.Value <= 20 then
+				if game.Players.LocalPlayer.Data.Level.Value <= 50 then
 					CheckLevel2()
 					game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text = NameMon
 					game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible = true
