@@ -3659,6 +3659,8 @@ if _G.Hiru_Hub_Series_R then
 								HopLowServer()
 							end
 						end
+					else
+						HopLowServer()
 					end
 				end
 			end
