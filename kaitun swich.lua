@@ -3632,7 +3632,7 @@ if _G.Hiru_Hub_Series_R then
 		elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 			if Old_World and game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 				local Lv = game.Players.LocalPlayer.Data.Level.Value
-				if game.Players.LocalPlayer.Data.Level.Value >= 60 and game.Players.LocalPlayer.Data.Level.Value < 650 and #game.Players:GetPlayers() > 5 then
+				if game.Players.LocalPlayer.Data.Level.Value >= 60 and game.Players.LocalPlayer.Data.Level.Value < 650 and #game.Players:GetPlayers() > 1 then
 					if string.find(tostring(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("PlayerHunter")),'We') then
 						if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
 							local at_time = 0
@@ -3792,7 +3792,7 @@ if _G.Hiru_Hub_Series_R then
 			end
 			if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 				local Lv = game.Players.LocalPlayer.Data.Level.Value
-				if game.Players.LocalPlayer.Data.Level.Value >= 10 and game.Players.LocalPlayer.Data.Level.Value <= 60 then
+				if game.Players.LocalPlayer.Data.Level.Value <= 60 then
 					CheckLevel2()
 					game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text = NameMon
 					game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible = true
