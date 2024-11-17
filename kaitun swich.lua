@@ -3788,7 +3788,6 @@ if _G.Hiru_Hub_Series_R then
 							end
 						end
 					end
-					HopLowServer()
 				end
 			end
 			if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
